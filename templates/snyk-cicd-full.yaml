@@ -15,7 +15,7 @@ Metadata:
   AWS::CloudFormation::Interface:
     ParameterGroups:
       - Label:
-          default: Snyk
+          default: Snyk configuration
         Parameters:
           - SnykExternalId
       - Label:
@@ -59,32 +59,32 @@ Metadata:
       QSS3KeyPrefix:
         default: Quick Start S3 key prefix
       SnykExternalId:
-        default: Snyk Organization ID
+        default: Snyk organization ID
 Parameters:
   AppName:
-    Description: Application name, used for the repository and child stack name
+    Description: Application name, used for the repository and child stack name.
     Type: String
     Default: Sample
   BuildImageName:
-    Description: Docker image for application build
+    Description: Docker image for application build.
     Type: String
     Default: aws/codebuild/nodejs:10.1.0
   DevAwsAccountId:
-    Description: AWS account ID for development account
+    Description: Enter the AWS account ID for your development account. For guidance, see Finding Your AWS Account ID in the AWS documentation.
     Type: String
     AllowedPattern: (\d{12}|^$)
     ConstraintDescription: Must be an AWS account ID
   DevChildAccountRoleName:
-    Description: Name of role created by ChildAccountRole template in development account
+    Description: Name of role created by ChildAccountRole template in your development account.
     Type: String
     Default: ChildAccountRole
   ProdAwsAccountId:
-    Description: AWS account ID for production account
+    Description: AWS account ID for production account.
     Type: String
     AllowedPattern: (\d{12}|^$)
     ConstraintDescription: Must be an AWS account ID
   ProdChildAccountRoleName:
-    Description: Name of role created by ChildAccountRole template in production account
+    Description: Name of role created by ChildAccountRole template in production account.
     Type: String
     Default: ChildAccountRole
   QSS3BucketName:
@@ -107,7 +107,7 @@ Parameters:
     AllowedPattern: ^[0-9a-zA-Z-/.]*$
     ConstraintDescription:
       Quick Start key prefix can include numbers, lowercase letters,
-      uppercase letters, hyphens (-), dots(.) and forward slash (/).
+      uppercase letters, hyphens (-), dots (.), and forward slash (/).
     Default: quickstart-snyk-serverless/
     Description:
       S3 key prefix for the Quick Start assets. Quick Start key prefix
@@ -115,7 +115,7 @@ Parameters:
       forward slash (/).
     Type: String
   SnykExternalId:
-    Description: You may find this by logging into https://app.snyk.io and navigate to Settings.
+    Description: You may find this by logging in to https://app.snyk.io and navigate to Settings.
     Type: String
     AllowedPattern: '[a-z0-9-]{36}'
     MinLength: 1
