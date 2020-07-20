@@ -45,7 +45,7 @@ Metadata:
       QSS3BucketName:
         default: Quick Start S3 bucket name
       QSS3BucketRegion:
-        default: Quick Start S3 bucket region
+        default: Quick Start S3 bucket Region
       QSS3KeyPrefix:
         default: Quick Start S3 key prefix
 Parameters:
@@ -55,7 +55,7 @@ Parameters:
     AllowedPattern: (\d{12}|^$)
     ConstraintDescription: Must be an AWS account ID
   ChildAccountRoleName:
-    Description: The name of the role to create in the development account. This name must be unique in the development account.
+    Description: The name of the role to create in the account. This name must be unique in the account.
     Default: ChildAccountRole
     Type: String
   SnykExternalId:
