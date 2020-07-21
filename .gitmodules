@@ -6,3 +6,6 @@
 	path = submodules/quickstart-snyk-security
 	url = git@github.com:aws-quickstart/quickstart-snyk-security.git
 	branch = master
+[submodule "docs/boilerplate"]
+	path = docs/boilerplate
+	url = https://github.com/aws-quickstart/quickstart-documentation-base-common.git
