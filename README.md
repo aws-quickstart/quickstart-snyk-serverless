@@ -1,34 +1,25 @@
 # quickstart-snyk-serverless
 ## Snyk Serverless CI/CD for the Enterprise on the AWS Cloud
 
-This Quick Start enables integration between your Snyk organization and deployed AWS Lambda functions in your AWS Accounts. It allows users to secure their applications by finding, fixing, and monitoring potential vulnerabilities in open-source dependencies. It’s based on and deploys the resources in the [Serverless CI/CD Quick Start created by Trek10](https://aws.amazon.com/quickstart/architecture/serverless-cicd-for-enterprise/).
+This Quick Start enables you to use Snyk software as a service (SaaS) AWS integrations. It helps you secure your applications by finding, fixing, and monitoring potential vulnerabilities in open-source dependencies. With Snyk, you can build security into your continuous-development process. 
 
-The Quick Start is automated by AWS CloudFormation templates that deploy a Snyk serverless integration in about 20 minutes in your AWS accounts.
+This reference deployment builds a continuous integration and continuous delivery (CI/CD) environment on the AWS Cloud. As a foundation, it uses the [Serverless CI/CD Quick Start created by Trek10](https://aws.amazon.com/quickstart/architecture/serverless-cicd-for-enterprise/). This CI/CD environment provides an enterprise-ready, dynamic deployment pipeline for your serverless applications. The Quick Start is automated by AWS CloudFormation templates that deploy a Snyk serverless integration in about 20 minutes in your AWS accounts.
 
-Following AWS best practices for isolating resources, this Quick Start requires you to create three AWS subaccounts: shared services, development, and production. As Figure 1 shows, you deploy AWS Identity and Access Management (IAM) roles and policies to give your Snyk organization ID access to the accounts. This access establishes integrations that secure your CI/CD pipelines so that you can use Snyk to perform security scans of your applications.
+Following AWS best practices for isolating resources, this Quick Start walks you through creating three AWS accounts (subaccounts): development, production, adn shared services. As shown in Figure 1, you deploy AWS Identity and Access Management (IAM) roles and policies into these accounts to grant your Snyk organization ID access to the Lambda resources in these accounts. (Depending on the workflow of your CI/CD pipeline, you may want to integrate additional services as well.) This cross-account access establishes integrations that secure your CI/CD pipeline so that you can use Snyk to perform security scans of your applications.
 
 <p align="center">
     <img src="./images/Snyk-3-cross-acct-IAM-roles.png">
 </p>
-<p align="center">Figure 1: This Quick Start integrates Snyk with three AWS accounts</p>
-
-Additionally, this Quick Start deploys various AWS services and resources to create the serverless CI/CD environment, as detailed in the [Trek10 Serverless CI/CD Quick Start deployment guide](https://fwd.aws/53avp). Figure 1 shows Snyk integration with AWS Lambda. You may want to integrate additional services, depending on the workflow of your CI/CD pipeline.
-
-### Cost and licenses
-
-You are responsible for the cost of the AWS services used while running this Quick Start reference deployment. There is no additional cost for using the Quick Start.
-
-Snyk, which is available in the AWS Marketplace as [Snyk: Developer-First Security](https://aws.amazon.com/marketplace/pp/B085VGM85Q?qid=1587078167615&sr=0-1&ref_=srh_res_product_title), is fulfilled as a SaaS offering. SaaS is a delivery model for software applications whereby the vendor hosts and operates the application over the internet. Customers pay to use the software without owning the underlying infrastructure. With SaaS contracts, customers pay for usage through their AWS bill.
+<p align="center">Figure 1: This Quick Start integrates Snyk with three AWS accounts</p> 
 
 ### Architecture
 
-Figure 2 shows the architecture of the serverless CI/CD environment after you deploy this Quick Start, along with the integration of your AWS Lambda functions into your Snyk organization.
+As shown in Figure 2, the Quick Start integrates your Lambda functions into your Snyk organization. In addition, using the Trek10 Quick Start as a submodule, it automatically sets up a serverless CI/CD environment. For details on the resources deployed, read the [Trek10 Serverless CI/CD Quick Start deployment guide](https://fwd.aws/53avp).
+
 <p align="center">
     <img src="./images/Snyk-arch-diagram.png">
 </p>
 <p align="center">Figure 2: Quick Start architecture for Snyk serverless CI/CD on AWS</p>
-
-For details on the resources deployed for the serverless CI/CD environment provided by Trek10, read the [Trek10 Serverless CI/CD Quick Start deployment guide](https://fwd.aws/53avp).
 
 ### Prepare your AWS account
 
@@ -64,7 +55,6 @@ This Quick Start requires that you have a Snyk login or subscription. If you don
 ### Deploy resources
 1. Sign in to the AWS shared services subaccount as a user with IAM permissions to create resources in several AWS services. We recommend using the **AdministratorAccess** managed policy.
 2. [Deploy resources across the three subaccounts](https://fwd.aws/YeDwE).
-
 
 
 To post feedback, submit feature ideas, or report bugs, use the **Issues** section of this GitHub repo.
