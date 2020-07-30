@@ -14,14 +14,14 @@ As shown in Figure 1, you deploy IAM roles into your development, production, an
 </p>
 <p align="center">Figure 1: AWS accounts integrated with Snyk</p> 
 
-As shown in Figure 2, the Quick Start integrates your Lambda functions into your Snyk organization. In addition, using the Trek10 Quick Start as a submodule, it automatically sets up a serverless CI/CD environment. For details on the resources deployed, read the [Trek10 Serverless CI/CD Quick Start deployment guide](https://fwd.aws/53avp).
+As shown in Figure 2, the Quick Start integrates your Lambda functions into your Snyk organization. In addition, using the Trek10 Quick Start as a submodule, it automatically sets up a serverless CI/CD environment. 
 
 <p align="center">
     <img src="./images/Snyk-arch-diagram.png">
 </p>
 <p align="center">Figure 2: Quick Start architecture for Snyk serverless CI/CD on AWS</p>
 
-For architectural details, step-by-step instructions, and customization options, see the [deployment guide](https://fwd.aws/mrrMK).
+For details on the resources deployed, read the [Trek10 Serverless CI/CD Quick Start deployment guide](https://fwd.aws/53avp). For step-by-step instructions and customization options for this Quick Start, see the [Snyk Serverless CI/CD Quick Start deployment guide](https://fwd.aws/mrrMK).
 
 To post feedback, submit feature ideas, or report bugs, use the **Issues** section of this GitHub repo.
 
