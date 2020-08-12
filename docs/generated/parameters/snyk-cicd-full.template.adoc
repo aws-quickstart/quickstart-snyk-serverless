@@ -1,0 +1,36 @@
+
+.Snyk configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Snyk organization ID
+(`SnykExternalId`)|`**__Requires input__**`|You may find this by logging in to https://app.snyk.io and navigate to Settings.
+|===
+.Application configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Application name
+(`AppName`)|`Sample`|Application name, used for the repository and child stack name.
+|===
+.Accounts configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Development account ID (child)
+(`DevAwsAccountId`)|`**__Requires input__**`|Enter the AWS account ID for your development account. For guidance, see Finding Your AWS Account ID in the AWS documentation.|Development account role name
+(`DevChildAccountRoleName`)|`ChildAccountRole`|Name of role created by ChildAccountRole template in your development account.|Production account ID (child)
+(`ProdAwsAccountId`)|`**__Requires input__**`|AWS account ID for production account.|Production account role name
+(`ProdChildAccountRoleName`)|`ChildAccountRole`|Name of role created by ChildAccountRole template in production account.
+|===
+.Pipeline configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Build image
+(`BuildImageName`)|`aws/codebuild/nodejs:10.1.0`|Docker image for application build.
+|===
+.AWS Quick Start configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Quick Start S3 bucket name
+(`QSS3BucketName`)|`aws-quickstart`|S3 bucket name for the Quick Start assets. This string can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).|Quick Start S3 bucket Region
+(`QSS3BucketRegion`)|`us-east-1`|The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.|Quick Start S3 key prefix
+(`QSS3KeyPrefix`)|`quickstart-snyk-serverless/`|S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots(.) and forward slash (/).
+|===

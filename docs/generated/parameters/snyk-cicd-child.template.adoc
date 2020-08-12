@@ -1,0 +1,22 @@
+
+.Snyk configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Snyk organization ID
+(`SnykExternalId`)|`**__Requires input__**`|You may find this by logging in to https://app.snyk.io and navigate to Settings.
+|===
+.Trek10 Serverless CICD
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Shared services account ID
+(`CentralAwsAccountId`)|`**__Requires input__**`|The AWS account ID of the shared services account. For guidance, see Finding Your AWS Account ID in the AWS documentation.|Child account role name
+(`ChildAccountRoleName`)|`ChildAccountRole`|The name of the role to create in the account. This name must be unique in the account.
+|===
+.AWS Quick Start configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Quick Start S3 bucket name
+(`QSS3BucketName`)|`aws-quickstart`|S3 bucket name for the Quick Start assets. This string can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).|Quick Start S3 bucket Region
+(`QSS3BucketRegion`)|`us-east-1`|The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.|Quick Start S3 key prefix
+(`QSS3KeyPrefix`)|`quickstart-snyk-serverless/`|S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots(.) and forward slash (/).
+|===
