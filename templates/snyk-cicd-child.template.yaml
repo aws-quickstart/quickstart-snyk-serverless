@@ -1,6 +1,6 @@
 ---
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Snyk integration for AWS Lambda with Serverless CICD Full Stack. (qs-1qm9kh0m8)
+Description: Snyk integration for AWS Lambda with Serverless CICD Child Accounts. (qs-1qqfh4fnp)
 Outputs:
   SnykLambdaIntegrationRole:
     Description: Snyk Lambda Integration Role ARN
@@ -8,10 +8,16 @@ Outputs:
   Version:
     Description: Snyk Lambda Integration Version
     Value: 1.0.2
+  CCIDRemoteAccountRole:
+    Description: Trek10 CICD IAM Integration Role ARN
+    Value: !GetAtt 'CICDChildStack.Outputs.RemoteAccountRole'
+  CCIDRemoteAccountRoleName:
+    Description: Trek10 CICD IAM Integration Role Name
+    Value: !GetAtt 'CICDChildStack.Outputs.RemoteAccountRoleName'
 Metadata:
   LICENSE: Apache License, Version 2.0
   Documentation:
-    EntrypointName: "Snyk integration for AWS Lambda with Serverless CICD Full Stack"
+    EntrypointName: "Snyk integration for AWS Lambda with Serverless CICD Child Accounts"
   AWS::CloudFormation::Interface:
     ParameterGroups:
       - Label:
@@ -19,20 +25,10 @@ Metadata:
         Parameters:
           - SnykExternalId
       - Label:
-          default: Application configuration
+          default: Trek10 Serverless CICD
         Parameters:
-          - AppName
-      - Label:
-          default: Accounts configuration
-        Parameters:
-          - DevAwsAccountId
-          - DevChildAccountRoleName
-          - ProdAwsAccountId
-          - ProdChildAccountRoleName
-      - Label:
-          default: Pipeline configuration
-        Parameters:
-          - BuildImageName
+          - CentralAwsAccountId
+          - ChildAccountRoleName
       - Label:
           default: AWS Quick Start configuration
         Parameters:
@@ -40,53 +36,33 @@ Metadata:
           - QSS3BucketRegion
           - QSS3KeyPrefix
     ParameterLabels:
-      AppName:
-        default: Application name
-      BuildImageName:
-        default: Build image
-      DevAwsAccountId:
-        default: Development account ID (child)
-      DevChildAccountRoleName:
-        default: Development account role name
-      ProdAwsAccountId:
-        default: Production account ID (child)
-      ProdChildAccountRoleName:
-        default: Production account role name
+      CentralAwsAccountId:
+        default: Shared services account ID
+      ChildAccountRoleName:
+        default: Child account role name
+      SnykExternalId:
+        default: Snyk organization ID
       QSS3BucketName:
         default: Quick Start S3 bucket name
       QSS3BucketRegion:
         default: Quick Start S3 bucket Region
       QSS3KeyPrefix:
         default: Quick Start S3 key prefix
-      SnykExternalId:
-        default: Snyk organization ID
 Parameters:
-  AppName:
-    Description: Application name, used for the repository and child stack name.
-    Type: String
-    Default: Sample
-  BuildImageName:
-    Description: Docker image for application build.
-    Type: String
-    Default: aws/codebuild/nodejs:10.1.0
-  DevAwsAccountId:
-    Description: Enter the AWS account ID for your development account. For guidance, see Finding Your AWS Account ID in the AWS documentation.
+  CentralAwsAccountId:
+    Description: The AWS account ID of the shared services account. For guidance, see Finding Your AWS Account ID in the AWS documentation.
     Type: String
     AllowedPattern: (\d{12}|^$)
     ConstraintDescription: Must be an AWS account ID
-  DevChildAccountRoleName:
-    Description: Name of role created by ChildAccountRole template in your development account.
-    Type: String
+  ChildAccountRoleName:
+    Description: The name of the role to create in the account. This name must be unique in the account.
     Default: ChildAccountRole
-  ProdAwsAccountId:
-    Description: AWS account ID for production account.
     Type: String
-    AllowedPattern: (\d{12}|^$)
-    ConstraintDescription: Must be an AWS account ID
-  ProdChildAccountRoleName:
-    Description: Name of role created by ChildAccountRole template in production account.
+  SnykExternalId:
+    Description: You may find this by logging in to https://app.snyk.io and navigate to Settings.
     Type: String
-    Default: ChildAccountRole
+    AllowedPattern: '[a-z0-9-]{36}'
+    MinLength: 1
   QSS3BucketName:
     AllowedPattern: ^[0-9a-zA-Z]+([0-9a-zA-Z-]*[0-9a-zA-Z])*$
     ConstraintDescription:
@@ -114,31 +90,19 @@ Parameters:
       can include numbers, lowercase letters, uppercase letters, hyphens (-), dots(.) and
       forward slash (/).
     Type: String
-  SnykExternalId:
-    Description: You may find this by logging in to https://app.snyk.io and navigate to Settings.
-    Type: String
-    AllowedPattern: '[a-z0-9-]{36}'
-    MinLength: 1
 Conditions:
   UsingDefaultBucket: !Equals
     - !Ref QSS3BucketName
     - 'aws-quickstart'
 Resources:
-  CICDFulltack:
+  CICDChildStack:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       Parameters:
-        AppName: !Ref 'AppName'
-        BuildImageName: !Ref 'BuildImageName'
-        DevAwsAccountId: !Ref 'DevAwsAccountId'
-        DevChildAccountRoleName: !Ref 'DevChildAccountRoleName'
-        ProdAwsAccountId: !Ref 'ProdAwsAccountId'
-        ProdChildAccountRoleName: !Ref 'ProdChildAccountRoleName'
-        QSS3BucketName: !Ref QSS3BucketName
-        QSS3BucketRegion: !Ref QSS3BucketRegion
-        QSS3KeyPrefix: !Sub ${QSS3KeyPrefix}submodules/quickstart-trek10-serverless-enterprise-cicd/
+        CentralAwsAccountId: !Ref 'CentralAwsAccountId'
+        ChildAccountRoleName: !Ref 'ChildAccountRoleName'
       TemplateURL: !Sub
-        - 'https://${S3Bucket}.s3.${S3Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}submodules/quickstart-trek10-serverless-enterprise-cicd/templates/full-stack.template.yaml'
+        - 'https://${S3Bucket}.s3.${S3Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}submodules/quickstart-trek10-serverless-enterprise-cicd/ChildAccountRole.template.yaml'
         - S3Bucket: !If
             - UsingDefaultBucket
             - !Sub 'aws-quickstart-${AWS::Region}'
@@ -152,9 +116,6 @@ Resources:
     Properties:
       Parameters:
         SnykExternalId: !Ref 'SnykExternalId'
-        QSS3BucketName: !Ref QSS3BucketName
-        QSS3BucketRegion: !Ref QSS3BucketRegion
-        QSS3KeyPrefix: !Sub ${QSS3KeyPrefix}submodules/quickstart-snyk-security/
       TemplateURL: !Sub
         - 'https://${S3Bucket}.s3.${S3Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}submodules/quickstart-snyk-security/templates/snyk-lambda.yaml'
         - S3Bucket: !If
