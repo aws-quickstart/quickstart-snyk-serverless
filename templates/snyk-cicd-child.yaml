@@ -16,7 +16,7 @@ Outputs:
     Value: !GetAtt 'CICDChildStack.Outputs.RemoteAccountRoleName'
 Metadata:
   LICENSE: Apache License, Version 2.0
-  Documentation:
+  QuickStartDocumentation:
     EntrypointName: "Snyk integration for AWS Lambda with Serverless CICD Child Accounts"
   AWS::CloudFormation::Interface:
     ParameterGroups:
