@@ -152,9 +152,6 @@ Resources:
     Properties:
       Parameters:
         SnykExternalId: !Ref 'SnykExternalId'
-        QSS3BucketName: !Ref QSS3BucketName
-        QSS3BucketRegion: !Ref QSS3BucketRegion
-        QSS3KeyPrefix: !Sub ${QSS3KeyPrefix}submodules/quickstart-snyk-security/
       TemplateURL: !Sub
         - 'https://${S3Bucket}.s3.${S3Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}submodules/quickstart-snyk-security/templates/snyk-lambda.template.yaml'
         - S3Bucket: !If
