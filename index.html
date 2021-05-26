@@ -840,8 +840,8 @@ p.footer-text a{color:#d7d8d8}
 <ul class="sectlevel2">
 <li><a href="#_sign_in_to_your_aws_account">Sign in to your AWS account</a></li>
 <li><a href="#_launch_the_quick_start">Launch the Quick Start</a></li>
-<li><a href="#_snyk_integration_for_aws_lambda_with_serverless_cicd_child_accounts">Snyk integration for AWS Lambda with Serverless CICD Child Accounts</a></li>
 <li><a href="#_snyk_integration_for_aws_lambda_with_serverless_cicd_full_stack">Snyk integration for AWS Lambda with Serverless CICD Full Stack</a></li>
+<li><a href="#_snyk_integration_for_aws_lambda_with_serverless_cicd_child_accounts">Snyk integration for AWS Lambda with Serverless CICD Child Accounts</a></li>
 </ul>
 </li>
 <li><a href="#_test_the_deployment">Test the deployment</a></li>
@@ -1273,7 +1273,7 @@ NOTE: Unless you are customizing the Quick Start templates for your own deployme
 </div>
 </div>
 <div class="sect2">
-<h3 id="_snyk_integration_for_aws_lambda_with_serverless_cicd_child_accounts">Snyk integration for AWS Lambda with Serverless CICD Child Accounts</h3>
+<h3 id="_snyk_integration_for_aws_lambda_with_serverless_cicd_full_stack">Snyk integration for AWS Lambda with Serverless CICD Full Stack</h3>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Snyk configuration</caption>
 <colgroup>
@@ -1298,97 +1298,7 @@ NOTE: Unless you are customizing the Quick Start templates for your own deployme
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. Trek10 Serverless CICD</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Shared services account ID
-(<code>CentralAwsAccountId</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The AWS account ID of the shared services account. For guidance, see Finding Your AWS Account ID in the AWS documentation.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Child account role name
-(<code>ChildAccountRoleName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ChildAccountRole</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the role to create in the account. This name must be unique in the account.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. AWS Quick Start configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket name
-(<code>QSS3BucketName</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket name for the Quick Start assets. This string can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket Region
-(<code>QSS3BucketRegion</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>us-east-1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 key prefix
-(<code>QSS3KeyPrefix</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-snyk-serverless/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots(.) and forward slash (/).</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_snyk_integration_for_aws_lambda_with_serverless_cicd_full_stack">Snyk integration for AWS Lambda with Serverless CICD Full Stack</h3>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. Snyk configuration</caption>
-<colgroup>
-<col style="width: 16%;">
-<col style="width: 11%;">
-<col style="width: 73%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter label (name)</th>
-<th class="tableblock halign-left valign-top">Default value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Snyk organization ID
-(<code>SnykExternalId</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">You may find this by logging in to <a href="https://app.snyk.io" class="bare">https://app.snyk.io</a> and navigate to Settings.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Application configuration</caption>
+<caption class="title">Table 2. Application configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1411,7 +1321,7 @@ NOTE: Unless you are customizing the Quick Start templates for your own deployme
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. Accounts configuration</caption>
+<caption class="title">Table 3. Accounts configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1452,7 +1362,7 @@ NOTE: Unless you are customizing the Quick Start templates for your own deployme
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. Pipeline configuration</caption>
+<caption class="title">Table 4. Pipeline configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1471,6 +1381,96 @@ NOTE: Unless you are customizing the Quick Start templates for your own deployme
 (<code>BuildImageName</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws/codebuild/nodejs:10.1.0</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Docker image for application build.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. AWS Quick Start configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket name
+(<code>QSS3BucketName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket name for the Quick Start assets. This string can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket Region
+(<code>QSS3BucketRegion</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>us-east-1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 key prefix
+(<code>QSS3KeyPrefix</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-snyk-serverless/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots(.) and forward slash (/).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_snyk_integration_for_aws_lambda_with_serverless_cicd_child_accounts">Snyk integration for AWS Lambda with Serverless CICD Child Accounts</h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 6. Snyk configuration</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snyk organization ID
+(<code>SnykExternalId</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You may find this by logging in to <a href="https://app.snyk.io" class="bare">https://app.snyk.io</a> and navigate to Settings.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 7. Trek10 Serverless CICD</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shared services account ID
+(<code>CentralAwsAccountId</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The AWS account ID of the shared services account. For guidance, see Finding Your AWS Account ID in the AWS documentation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Child account role name
+(<code>ChildAccountRoleName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ChildAccountRole</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the role to create in the account. This name must be unique in the account.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1644,10 +1644,10 @@ and to share your customizations with others.</p>
 </html>
 <!--
 repo commit:
-90354f024a8f75ec9f2c2d84854f92cb510d9173
+c831d9d6529dae0c6af782323918b95fbaf62a2a
 
 submodule config:
- 4b31f09b105a1aa1ea6e421e0e33b647196f4c69 docs/boilerplate (heads/main)
- 9e6344cac7d8904b76c097f279289caa072c2854 submodules/quickstart-snyk-security (heads/main)
+ a9d6c5903745c1091793d3cd1f960948919c2c9f docs/boilerplate (heads/main)
+ 5e93054da1b5086e063338347e50ed26041014c8 submodules/quickstart-snyk-security (heads/main)
  16b0d49b3805539a51ab87edffb24f2fce3df7e9 submodules/quickstart-trek10-serverless-enterprise-cicd (heads/main)
 -->

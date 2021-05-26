@@ -1,6 +1,6 @@
 
-=== Snyk integration for AWS Lambda with Serverless CICD Child Accounts
-include::snyk-cicd-child.template.adoc[]
-
 === Snyk integration for AWS Lambda with Serverless CICD Full Stack
 include::snyk-cicd-full.template.adoc[]
+
+=== Snyk integration for AWS Lambda with Serverless CICD Child Accounts
+include::snyk-cicd-child.template.adoc[]
